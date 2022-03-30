@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music player - Reyan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/93498c231e.js" crossorigin="anonymous"></script>
+
+    <style>
+        
+    </style>
+</head>
+
+<body class="bg-blue-400">
+    <audio preload="auto" id="audio" src="0.mp3">
+        <source oncanplaythrough="loadSong()" src="0.mp3" type="audio/mpeg">
+    </audio>
+    <h1 class="text-black mt-52 text-4xl flex justify-center items-center ">Audio player -- Reyan</h1>
+    <div class="titlndcover flex w-96 m-auto">
+        <div id="img-container">
+            <img id="cover" class="w-20 border rounded-full  " src="Ik Tera by Maninder Buttar.jpg" alt="">
+
+        </div>
+        <div class=" pl-5 flex items-center justify-center">
+            <h1 id="title" class="text-black-900">Ik Tera by Maninder Buttar</h1>
+        </div>
+    </div>
+    <div class="music-player w-96 h-10 flex m-auto  bg-[rgb(8,75,138)]">
+        <div class=" flex filter invert items-center justify-center m-auto">
+            <i class="ml-5 inline-block fa-solid fa-backward" onclick="prev_aud()"></i>
+
+
+            <i id="play" class="ml-5 w-2 inline-block fa-solid fa-play" alt="">
+            </i>
+
+            <i class="ml-5 inline-block fa-solid fa-forward" onclick="next_aud()"></i>
+
+            <i class="ml-5  inline-block fa-solid fa-circle-stop" onclick="stop_aud()" alt="">
+            </i>
+        </div>
+
+
+        <div id="myicondiv" class="filter invert flex ml-auto items-center">
+            <div class="m-2 w-4" onclick="changevolumeicon()">
+                <i id="volumeicon" class="fa-solid fa-volume-high"></i>
+
+            </div>
+            <input type="range" id="change_vol" onchange="change_vol()" step="0.05" min="0" max="1" value="1">
+        </div>
+
+
+
+    </div>
+</body>
+<script>
+
+    let playbtn = document.getElementById('play');
+    let volumebtn = document.getElementById('volumeicon');
+    let myicondiv = document.getElementById('myicondiv');
+    let slider = document.getElementById("change_vol");
+    let songIndex = 0;
+    let audio = document.getElementById('audio');
+    let title =document.getElementById('title')
+    let cover =document.getElementById('cover')
+    audio.controls = false;
+    const songs = [
+        'Ik Tera by Maninder Buttar',   // Song Name will go here
+        'Dil Bechara',  //  Song Name will go here
+        'Sooraj Dooba Hain ',   // Song Name will go here
+        'Tujhe Kitna Chahne Lage'    // Song Name will go here
+    ]
+
+    loadSong(songs[songIndex]); // Load the song using songIndex
+
+    
+
+    function loadSong(song) {
+        audio.src = `${song}.mp3`; //change the song src on the basis of loadSongInex
+        title.innerHTML  =`${song}`;
+        cover.src= `${song}.jpg`;
+    }
+
+    playbtn.addEventListener('click', () => {
+        const isplaying = playbtn.classList.contains('fa-play');// To Check whether the i tag has fa-play .
+
+        if (isplaying) {
+            playbtn.classList.remove('fa-play');
+            playbtn.classList.add('fa-pause');
+            audio.play();
+        }
+        else {
+            playbtn.classList.add('fa-play');
+            audio.pause();
+        }
+
+    });
+
+    
+    function stop_aud() {
+        audio.pause();
+
+        isplaying = playbtn.classList.contains('fa-pause')
+        if (isplaying) {
+            playbtn.classList.remove('fa-pause');
+            playbtn.classList.add('fa-play');
+            
+        }
+        
+        audio.currentTime = 0; // 
+    }
+
+    
+    function next_aud() {
+        songIndex++;
+        
+        if (songIndex > songs.length - 1) {
+            songIndex = 0;
+        }
+        else {
+
+        }
+        loadSong(songs[songIndex]);
+
+        audio.play();
+    }
+
+    function prev_aud() {
+        songIndex--;
+
+        if (songIndex < 0) {
+            songIndex = songs.length - 1;
+        }
+
+        loadSong(songs[songIndex]);
+        
+        audio.play();
+    }
+
+
+    function change_vol() {
+        audio.volume = document.getElementById("change_vol").value;
+    }
+    
+    function changevolumeicon() {
+    
+        const notmuted = volumebtn.classList.contains('fa-volume-high') // To Check whether the i tag has fa-volume-high class .
+
+        if (notmuted) {
+            volumebtn.classList.remove('fa-volume-high');
+            volumebtn.classList.add('fa-volume-off');
+            slider.value = 0; // To decrease the slider to 0
+            audio.volume = 0; // To decrease the volume of actual audio
+        }
+        else {
+            volumebtn.classList.remove('fa-volume-off');
+            volumebtn.classList.add('fa-volume-high');
+            slider.value = 150; // To increase the slider to 150.
+            audio.volume = 1;// To maximize the volume of actual audio.
+        }
+
+
+    }
+    
+
+</script>
+
+</html>
