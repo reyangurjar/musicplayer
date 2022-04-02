@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music player - Reyan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/93498c231e.js" crossorigin="anonymous"></script>
+    
+    
+</head>
+
+<body class="h-screen overflow-y-hidden  bg-gradient-to-b from-cyan-400 to-fuchsia-400">
+    <audio preload="auto" id="audio" src="0.mp3">
+        <source oncanplaythrough="loadSong()" src="0.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class=" flex  w-auto h-[70%] mx-20 mt-10 bg-[#25b5cf] rounded-2xl  border-cyan-600 border-4">
+            <div class="">
+                <button id="drpdownbtn" class=" mx-2 my-2 bg-gradient-to-tr from-amber-500 border rounded-full p-2 to-yellow-600">Click To Show <i id="btnicon" class="fa-solid fa-chevron-down"></i></button>
+                <div id="drpdwncontent" class="content py-5 hidden z-10 h-80 overflow-auto">
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Dil Bechara.jpg" alt="">
+                        <h1 class="ml-2">Dil Bechara<button class="fa-solid ml-2  allplaybtn fa-circle-play" onclick="playfromlist('Dil Bechara')" ></button></h1>
+                    </div>
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Sooraj Dooba Hain .jpg" alt="">
+                        <h1 class="ml-2">Sooraj Dooba Hain <button class="fa-solid  ml-2 allplaybtn fa-circle-play" onclick="playfromlist('Sooraj Dooba Hain ')" ></button></h1>
+                    </div>
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Ik Tera by Maninder Buttar.jpg" alt="">
+                        <h1 class="ml-2">Ik Tera by Maninder Buttar<button class="fa-solid ml-2  allplaybtn fa-circle-play" onclick="playfromlist('Ik Tera by Maninder Buttar')" ></button></h1>
+                    </div>
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Tujhe Kitna Chahne Lage.jpg" alt="">
+                        <h1 class="ml-2">Tujhe Kitna Chahne Lage<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Tujhe Kitna Chahne Lage')" ></button></h1>
+                    </div>
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Filhall - B Praak.jpg" alt="">
+                        <h1 class="ml-2">Filhall - B Praak<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Tujhe Kitna Chahne Lage')" ></button></h1>
+                    </div>
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Jai Jai Shivshankar.jpg" alt="">
+                        <h1 class="ml-2">Jai Jai Shivshankar<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Tujhe Kitna Chahne Lage')" ></button></h1>
+                    </div>
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Pachtaoge-(Jaani-Ve)-Arijit-Singh.jpg" alt="">
+                        <h1 class="ml-2">Pachtaoge-(Jaani-Ve)-Arijit-Singh<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Tujhe Kitna Chahne Lage')" ></button></h1>
+                    </div>
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Qismat.jpg" alt="">
+                        <h1 class="ml-2">Qismat<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Tujhe Kitna Chahne Lage')" ></button></h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ml-auto flex">
+                <img class="" src="bg.jpg" alt="">
+            </div>
+    </div>
+    
+
+
+
+    
+    <div class="music-player overflow-hidden w-[100%] h-20 flex absolute bottom-0 bg-gradient-to-r from-sky-500 to-cyan-400  ">
+        <div class="flex  items-center justify-center">
+            <img id="cover" class="w-16 border rounded-full   " src="Ik Tera by Maninder Buttar.jpg" alt="">
+            <h1 id="title" class="ml-2 w-48 text-black-900">Ik Tera by Maninder Buttar</h1>
+
+        </div>
+        <div class="  ml-[12rem]    ">
+            <input id="progressbar" class="w-96 mt-2 "  value="0"  type="range">
+            <div class="navigations flex items-center justify-center relative top-1 ">
+
+                <i class="inline-block fa-2x  fa-solid fa-backward-step" onclick="prev_aud()"></i>
+
+                <i id="play" class="ml-5 fa-2x w-2 inline-block fa-solid fa-play" onclick="play()" alt="">
+                </i>
+
+                <i class="ml-8 inline-block fa-2x  fa-solid fa-forward-step" onclick="next_aud()"></i>
+                
+            </div>
+        </div>
+
+        <div id="myicondiv" class=" flex ml-auto items-center">
+            <!-- <i class="fa-solid fa-shuffle ml-5 inline-block fa-lg"></i>
+                <i class="fa-solid fa-repeat ml-5 inline-block fa-lg"></i> -->
+            <div class="m-2 w-4 ml-12" onclick="changevolumeicon()">
+                <i id="volumeicon" class="fa-solid fa-volume-high"></i>
+
+            </div>
+            <input class="filter invert mr-1" type="range" id="change_vol" onchange="change_vol()" step="0.05" min="0" max="1" value="1">
+        </div>
+    </div>
+    
+</body>
+
+<script src="main.js"></script>
+
+</html>
