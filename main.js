@@ -7,11 +7,13 @@
     let audio = document.getElementById('audio');
     let title = document.getElementById('title')
     let cover = document.getElementById('cover')
+    let cover1 = document.getElementById('cover1')
     let progressbar = document.getElementById('progressbar')
     let drpdownbtn = document.getElementById('drpdownbtn')
     let drpdowncontent = document.getElementById('drpdwncontent')
     let btnicon = document.getElementById('btnicon')
     let allplaybtn = document.querySelectorAll('.allplaybtn')
+    let gif = document.getElementById('gif')
     audio.controls = false;
 
     // This is an function to shuffle songs
@@ -55,7 +57,9 @@
     function loadSong(song) {
         audio.src = `assests/${song}.mp3`; //change the song src on the basis of loadSongInex
         title.innerHTML = `${song}`;
+        
         cover.src = `assests/${song}.jpg`;
+        cover1.src = `assests/${song}.jpg`;
     }
 
     function play(){
@@ -64,13 +68,17 @@
         if (isplaying) {
             playbtn.classList.remove('fa-play');
             playbtn.classList.add('fa-pause');
+            gif.classList.remove('opacity-0')
+            gif.classList.add('opacity-1')
+
             audio.play();
-            console.log('ifworking')
+            
         }
         else {
             playbtn.classList.remove('fa-pause')
             playbtn.classList.add('fa-play');
-            console.log('elseworking')
+            gif.classList.remove('opacity-1')
+            gif.classList.add('opacity-0')
             audio.pause();
         }
         
