@@ -9,7 +9,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/93498c231e.js" crossorigin="anonymous"></script>
     
-    
+    <style>
+        *::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
+  width: 26px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+}
+
+*::-webkit-scrollbar-thumb {        
+  box-shadow: inset 0 0 0 10px;
+}
+    </style>
 </head>
 
 <body class="h-screen overflow-y-hidden  bg-gradient-to-b from-cyan-400 to-fuchsia-400">
@@ -17,46 +29,49 @@
         <source oncanplaythrough="loadSong()" src="0.mp3" type="audio/mpeg">
     </audio>
 
-    <div class=" flex  w-auto h-[70%] mx-20 mt-10 bg-[#25b5cf] rounded-2xl  border-cyan-600 border-4">
-            <div class="">
+    <div class=" flex  w-auto h-[70%] mx-20 mt-10 bg-[#25b5cf] rounded-2xl shadow-emerald-800 shadow-2xl border-cyan-600 border-4">
+            <div class="w-96">
                 <button id="drpdownbtn" class=" mx-2 my-2 bg-gradient-to-tr from-amber-500 border rounded-full p-2 to-yellow-600">Click To Show <i id="btnicon" class="fa-solid fa-chevron-down"></i></button>
-                <div id="drpdwncontent" class="content py-5 hidden z-10 h-80 overflow-auto">
+                <div id="drpdwncontent" class="content py-5 hidden z-10 h-80 w-72 overflow-auto">
+                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
+                        <img class="w-12 border rounded-2xl" src="assests/Ik Tera by Maninder Buttar.jpg" alt="">
+                        <button onclick="playfromlist('Ik Tera by Maninder Buttar')" class="ml-2">Ik Tera by Maninder Buttar<i class="fa-solid ml-2  allplaybtn fa-circle-play"  ></i></button>
+                    </div>
                     <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
                         <img class="w-12 border rounded-2xl" src="assests/Dil Bechara.jpg" alt="">
-                        <h1 class="ml-2">Dil Bechara<button class="fa-solid ml-2  allplaybtn fa-circle-play" onclick="playfromlist('Dil Bechara')" ></button></h1>
+                        <button onclick="playfromlist('Dil Bechara')" class="ml-2">Dil Bechara<i class="fa-solid ml-2  allplaybtn fa-circle-play"  ></i></button>
                     </div>
                     <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
                         <img class="w-12 border rounded-2xl" src="assests/Sooraj Dooba Hain .jpg" alt="">
-                        <h1 class="ml-2">Sooraj Dooba Hain <button class="fa-solid  ml-2 allplaybtn fa-circle-play" onclick="playfromlist('Sooraj Dooba Hain ')" ></button></h1>
-                    </div>
-                    <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
-                        <img class="w-12 border rounded-2xl" src="assests/Ik Tera by Maninder Buttar.jpg" alt="">
-                        <h1 class="ml-2">Ik Tera by Maninder Buttar<button class="fa-solid ml-2  allplaybtn fa-circle-play" onclick="playfromlist('Ik Tera by Maninder Buttar')" ></button></h1>
+                        <button onclick="playfromlist('Sooraj Dooba Hain ')" class="ml-2">Sooraj Dooba Hain <i class="fa-solid  ml-2 allplaybtn fa-circle-play"  ></i></button>
                     </div>
                     <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
                         <img class="w-12 border rounded-2xl" src="assests/Tujhe Kitna Chahne Lage.jpg" alt="">
-                        <h1 class="ml-2">Tujhe Kitna Chahne Lage<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Tujhe Kitna Chahne Lage')" ></button></h1>
+                        <button onclick="playfromlist('Tujhe Kitna Chahne Lage')" class="ml-2">Tujhe Kitna Chahne Lage<i class=" ml-2 fa-solid allplaybtn fa-circle-play"  ></i></button>
                     </div>
                     <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
                         <img class="w-12 border rounded-2xl" src="assests/Filhall - B Praak.jpg" alt="">
-                        <h1 class="ml-2">Filhall - B Praak<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Filhall - B Praak')" ></button></h1>
+                        <button onclick="playfromlist('Filhall - B Praak')" class="ml-2">Filhall - B Praak<i class=" ml-2 fa-solid allplaybtn fa-circle-play"  ></i></button>
                     </div>
                     <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
                         <img class="w-12 border rounded-2xl" src="assests/Jai Jai Shivshankar.jpg" alt="">
-                        <h1 class="ml-2">Jai Jai Shivshankar<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Jai Jai Shivshankar')" ></button></h1>
+                        <button onclick="playfromlist('Jai Jai Shivshankar')" class="ml-2">Jai Jai Shivshankar<i class=" ml-2 fa-solid allplaybtn fa-circle-play"  ></i></button>
                     </div>
                     <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
                         <img class="w-12 border rounded-2xl" src="assests/Pachtaoge-(Jaani-Ve)-Arijit-Singh.jpg" alt="">
-                        <h1 class="ml-2">Pachtaoge-(Jaani-Ve)-Arijit-Singh<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Pachtaoge-(Jaani-Ve)-Arijit-Singh')" ></button></h1>
+                        <button onclick="playfromlist('Pachtaoge-(Jaani-Ve)-Arijit-Singh')" class="ml-2">Pachtaoge-(Jaani-Ve)-Arijit-Singh<i class=" ml-2 fa-solid allplaybtn fa-circle-play"  ></i></button>
                     </div>
                     <div class="flex items-center ml-4 mt-2 border-2 border-zinc-900 rounded-2xl p-1 ">
                         <img class="w-12 border rounded-2xl" src="assests/Qismat.jpg" alt="">
-                        <h1 class="ml-2">Qismat<button class=" ml-2 fa-solid allplaybtn fa-circle-play" onclick="playfromlist('Qismat')" ></button></h1>
+                        <button onclick="playfromlist('Qismat')" class="ml-2">Qismat<i class=" ml-2 fa-solid allplaybtn fa-circle-play"  ></i></button>
                     </div>
                 </div>
             </div>
+            <div class="">
+                <img class="w-[30rem] h-[27rem] border rounded-3xl  shadow-lg shadow-blue-700 " id="cover1" src="" alt="">
+            </div>
 
-            <div class="ml-auto flex">
+            <div class="ml-auto flex ">
                 <img class="" src="bg.jpg" alt="">
             </div>
     </div>
@@ -65,14 +80,14 @@
 
 
     
-    <div class="music-player overflow-hidden w-[100%] h-20 flex absolute bottom-0 bg-gradient-to-r from-sky-500 to-cyan-400  ">
+    <div class="music-player overflow-hidden w-[100%] h-20 flex absolute bottom-0 bg-[#02030f] text-white   ">
         <div class="flex  items-center justify-center">
             <img id="cover" class="w-16 border rounded-full   " src="Ik Tera by Maninder Buttar.jpg" alt="">
             <h1 id="title" class="ml-2 w-48 text-black-900">Ik Tera by Maninder Buttar</h1>
-
+            <video id="gif" class="w-48 opacity-0 transition-opacity duration-500" loop autoplay  src="musicgif.mp4"></video>
         </div>
-        <div class="  ml-[12rem]    ">
-            <input id="progressbar" class="w-96 mt-2 "  value="0"  type="range">
+        <div class=" ">
+            <input id="progressbar" class="w-96 mt-2   "  value="0"  type="range">
             <div class="navigations flex items-center justify-center relative top-1 ">
 
                 <i class="inline-block fa-2x  fa-solid fa-backward-step" onclick="prev_aud()"></i>
