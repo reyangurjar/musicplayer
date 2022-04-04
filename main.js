@@ -59,7 +59,7 @@
         title.innerHTML = `${song}`;
         
         cover.src = `assests/${song}.jpg`;
-        cover1.src = `assests/${song}.jpg`;
+            
     }
 
     function play(){
