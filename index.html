@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music player - Reyan</title>
+    <script src="Js/tailwind(offline).js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <style>
+        * {
+            transition-timing-function: ease-out;
+            transition-duration: 0.3s;
+            transition-property: opacity;
+        }
+
+        /* 
+        body {
+            overflow-y: scroll;
+            
+        }
+
+        
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        
+        * {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        /* scrollbar-width: none; */
+        /* Firefox */
+
+
+
+        /*} */
+
+        .songcard:hover img {
+            opacity: 0.7;
+        }
+
+        .songcard:hover button>img {
+            opacity: 1;
+           
+
+        }
+
+        .songcard button>img {
+            height: 3rem;
+            opacity: 0;
+            
+
+
+        }
+
+        #progressbar,
+        #change_vol {
+            accent-color: #2ecc71
+        }
+    </style>
+</head>
+
+<body class=" bg-[#252626] overflow-y-hidden  ">
+
+    <!-- <input type="text" onkeyup="myfunction()" id=""> -->
+    <!-- Work in progress -->
+    <!-- The main Div in the body -->
+
+    <!-- Side nav -->
+
+    <div id="hamburger" class="absolute md:hidden top-7  left-2 bg-transparent " onclick="sidenav()">
+        <img src="svgs/menu.svg" alt="">
+    </div>
+
+    <nav
+        class=" md:w-56 w-56 z-[2]    h-screen   hidden md:visible  md:block    md:h-screen fixed top-0 right-0 left-0 bottom-0 bg-black">
+
+
+        <div class="flex-col flex ">
+            <button class=" hover:bg-[#292929]  hover:font-bold  p-5  w-52 flex  text-white "><img
+                    src="svgs/home_white_24dp.svg" class="px-2" alt="homeicon"> Home</button>
+            <button class="hover:bg-[#292929]   hover:font-bold p-5  w-52 flex text-white "><img
+                    src="svgs/search_white_24dp.svg" class="px-2" alt="searchicon">Search</button>
+        </div>
+        <div class="text-4xl  md:hidden mr-4 ml-4 z-[2] w-5  text-white float-right  " onclick="sidenav()">
+            &times;
+        </div>
+    </nav>
+
+
+    <!-- The main audio element -->
+    <audio preload="auto" id="audio" src="0.mp3">
+        <source oncanplaythrough="loadSong()" src="0.mp3" type="audio/mpeg" />
+    </audio>
+
+
+    <!-- Don't forget to margin left 56 -->
+    <div id="cardsdiv" class="inline-flex maindiv md:ml-56  justify-center h-[80vh] overflow-y-scroll  flex-wrap ">
+
+
+        <!-- This portion is generated using js -->
+
+
+
+    </div>
+
+    <!-- Main div ended -->
+
+    <!-- Music player starts -->
+    <div
+        class="music-player  w-[100vw] z-[2] flex-col sm:flex-row h-[8rem] sm: flex fixed bottom-0 bg-[#02030f] text-white">
+        <div class="flex items-center  justify-center">
+            <img id="cover" class="w-14 h-[3.7rem]  border rounded-full" src="Ik Tera by Maninder Buttar.jpg"
+                alt="Cover" />
+            <h1 id="title" class="ml-2 w-56 text-black-900 text-lg">
+
+            </h1>
+        </div>
+        <div class="m-auto flex-col">
+            <input id="progressbar" class="sm:w-44 md:w-96 lg:w-96 w-48" value="0" type="range" />
+            <div class="navigations flex items-center justify-center relative">
+                <img class="w-12" src="svgs/skip_previous_white_24dp.svg" onclick="prev_aud()">
+
+                <img id="play" class=" w-12" src="svgs/play.svg" onclick="play()" alt="">
+
+
+                <img class="w-12 " src="svgs/skip_next_white_24dp.svg" onclick="next_aud()">
+                <!-- <i class="ml-8 fa-2x fa-solid fa-forward-step" onclick="next_aud()"></i> -->
+            </div>
+        </div>
+
+        <div class="flex  items-center ">
+            <!-- Work in progress -->
+            <div id="shufflediv" class="mx-3 inline-block   border rounded-2xl  " onclick="shuffle(songs)">
+                <img id="shuffledivimg" class=" " src="svgs/shuffle.svg">
+            </div>
+            <div id="repeatdiv" class="mx-3 inline-block border rounded-2xl " onclick="repeat()">
+                <img id="repeatimg" class="filter invert  " src="svgs/repeat.svg">
+            </div>
+            <div class="mr-1  hidden sm:block">
+                <img id="volumeicon" src="svgs/volume_up.svg" onclick="changevolumeicon()" class="">
+            </div>
+            <input class="hidden sm:block filter invert mr-1 w-14 sm:w-24 md:w-36 lg:max-w-full" type="range"
+                id="change_vol" onchange="change_vol()" step="0.001" min="0" max="1" value="1" />
+        </div>
+    </div>
+    <!-- music-player Ends -->
+</body>
+
+<script src="Js/main.js"></script>
+
+<!-- <link rel="stylesheet" href="css/tailwind.css" />  -->
+
+</html>
